@@ -1,0 +1,23 @@
+
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste des CV</h1>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Liste des CV</li>
+  </ol>
+
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="fas fa-table me-1"></i>
+      Liste des CV
+    </div>
+
+  <ul
+    class="list-group list-group-flush"
+    *ngFor="let file of fileInfos | async"
+  >
+    <li class="list-group-item">
+      <a href="http://localhost:8080/files/{{file}}">{{ file }}</a>
+    </li>
+  </ul>
+</div>
+  </div>

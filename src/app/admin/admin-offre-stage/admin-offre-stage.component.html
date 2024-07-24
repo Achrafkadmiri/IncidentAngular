@@ -1,0 +1,62 @@
+
+<main>
+  <div class="container-fluid px-4">
+    <h1 class="mt-4">Offres de Stage</h1>
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item active">Offres de Stage</li>
+    </ol>
+
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+      </div>
+      <div class="card-body">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+          <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Nbr Postes</th>
+            <th>Type</th>
+            <th>DateDebut</th>
+            <th>Durée</th>
+            <th>Ville</th>
+            <th>Organization</th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let a of annonces">
+            <td>{{a.titre}}</td>
+            <td>{{a.nbrPoste}}</td>
+            <td>{{a.type}}</td>
+            <td>{{a.dateDebut}}</td>
+            <td>{{a.duree}}</td>
+            <td>{{a.ville}}</td>
+            <td>{{a.nomEntreprise}}</td>
+            <td> <a class="btn btn-success" [routerLink]="['/v2/CvList',a.id,'stage']">CVs</a></td>
+            <td><a class="btn btn-danger" (click)="handleDelete(a.id)">Supprimer</a></td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="py-4 bg-light mt-auto">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center justify-content-between small">
+      <div class="text-muted">Copyright &copy; Your Website 2023</div>
+      <div>
+        <a href="#">Privacy Policy</a>
+        &middot;
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+

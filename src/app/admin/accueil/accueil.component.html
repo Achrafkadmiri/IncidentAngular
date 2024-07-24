@@ -1,0 +1,102 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Dashboard</h1>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+  </ol>
+  <div class="row">
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-danger text-white mb-4">
+        <div class="card-body">{{ countNoTraited }} Pending File</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/v2/NoTraited">View Details</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-success text-white mb-4">
+        <div class="card-body">{{ countAll }} Traited File</div>
+
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" routerLink="/v2/Traited">View Details</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+<!--    <div class="col-xl-3 col-md-6">-->
+<!--      <div class="card bg-success text-white mb-4">-->
+<!--        <div class="card-body">Success Card</div>-->
+<!--        <div class="card-footer d-flex align-items-center justify-content-between">-->
+<!--          <a class="small text-white stretched-link" href="#">View Details</a>-->
+<!--          <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-xl-3 col-md-6">-->
+<!--      <div class="card bg-danger text-white mb-4">-->
+<!--        <div class="card-body">Danger Card</div>-->
+<!--        <div class="card-footer d-flex align-items-center justify-content-between">-->
+<!--          <a class="small text-white stretched-link" href="#">View Details</a>-->
+<!--          <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-chart-area me-1"></i>
+            Pending & Traited File Statistiques
+          </div>
+          <div class="card-body">
+            <app-chart-incident></app-chart-incident>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="card mb-4">
+          <div class="card-header">
+            <i class="fas fa-chart-bar me-1"></i>
+            Error Cause Statistiques
+          </div>
+          <div class="card-body">
+            <app-chart-incident-traited></app-chart-incident-traited>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="fas fa-table me-1"></i>
+      Pending file
+    </div>
+    <div class="card-body">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example"  class="row-border hover">
+
+        <thead>
+        <tr>
+          <th>Job</th>
+          <th>Date</th>
+          <th>Directory</th>
+          <th>File</th>
+          <th>Error Cause</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of apiData">
+          <td>{{ item.job }}</td>
+          <td>{{item.date | dateFormatter}}</td>
+          <td>{{ item.directory.substring(37) }}</td>
+          <td>{{ item.file.substring(2) }}</td>
+          <td><a style="color: #0c63e4" (click)="popup(item.errorCause)">{{ item.errorCause }}</a></td>
+          <td><a class="btn btn-primary traiter-btn" (click)="traiterIncident(item.id)">Traiter</a></td>
+        </tr>
+        <!-- DataTable will populate rows here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

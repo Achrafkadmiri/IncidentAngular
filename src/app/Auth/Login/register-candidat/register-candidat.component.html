@@ -1,0 +1,79 @@
+
+
+<div class="container">
+
+  <div class=" col-md-12 ">
+    <div class="form-container">
+      <h3 class="title">Espace Candidat <br><br> <h4 >Créer Votre Compte</h4></h3>
+
+      <form class="form-horizontal" [formGroup]="RegisterFormGroup" (ngSubmit)="saveCandidat()">
+        <div class="form-group">
+          <label>Username * <span class="text-danger" *ngIf="RegisterFormGroup.controls['username'].errors
+            && (RegisterFormGroup.controls['username'].touched || RegisterFormGroup.controls['username'].dirty  )">
+            {{getErrorMessage('username',RegisterFormGroup.controls['username'].errors)}}</span></label>
+          <input class="form-control" type="text" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label>Email * <span class="text-danger" *ngIf="RegisterFormGroup.controls['email'].errors
+            && (RegisterFormGroup.controls['email'].touched || RegisterFormGroup.controls['email'].dirty  )">
+            {{getErrorMessage('Email',RegisterFormGroup.controls['email'].errors)}}</span></label>
+          <input class="form-control" type="email" formControlName="email">
+          <span class="text-danger">
+            ddd</span>
+
+        </div>
+
+        <div class="form-group">
+          <label>Mot de passe * <span class="text-danger" *ngIf="RegisterFormGroup.controls['password'].errors
+            && (RegisterFormGroup.controls['password'].touched || RegisterFormGroup.controls['password'].dirty  )">
+            {{getErrorMessage('Mot de passe',RegisterFormGroup.controls['password'].errors)}}</span></label>
+          <input class="form-control" type="password" formControlName="password">
+        </div>
+        <div class="form-group">
+          <label>Confirmer Mot de passe * <span class="text-danger" *ngIf="RegisterFormGroup.controls['Cpassword'].errors
+            && (RegisterFormGroup.controls['Cpassword'].touched || RegisterFormGroup.controls['Cpassword'].dirty  )">
+            {{getErrorMessage('Mot de passe',RegisterFormGroup.controls['Cpassword'].errors)}}</span></label>
+          <input class="form-control" type="password" formControlName="Cpassword">
+        </div>
+        <h4 class="sub-title">Informations Personnel</h4>
+        <div class="form-group phone-no">
+          <label>Votre Nom <span class="text-danger" *ngIf="RegisterFormGroup.controls['prenom'].errors
+            && (RegisterFormGroup.controls['prenom'].touched || RegisterFormGroup.controls['prenom'].dirty  )">
+            {{getErrorMessage('Nom',RegisterFormGroup.controls['prenom'].errors)}}</span></label>
+          <input class="form-control" type="text" formControlName="prenom">
+        </div>
+        <div class="form-group age">
+          <label>Nom de famille <span class="text-danger" *ngIf="RegisterFormGroup.controls['nom'].errors
+            && (RegisterFormGroup.controls['nom'].touched || RegisterFormGroup.controls['nom'].dirty  )">
+            {{getErrorMessage('Nom de famille',RegisterFormGroup.controls['nom'].errors)}}</span></label>
+          <input class="form-control" type="text" formControlName="nom">
+        </div>
+        <div class="form-group phone-no">
+          <label>Date Naissance <span class="text-danger" *ngIf="RegisterFormGroup.controls['DateNaissance'].errors
+            && (RegisterFormGroup.controls['DateNaissance'].touched || RegisterFormGroup.controls['DateNaissance'].dirty  )">
+            {{getErrorMessage('Date Naissance',RegisterFormGroup.controls['DateNaissance'].errors)}}</span></label>
+          <input class="form-control" type="date" formControlName="DateNaissance">
+        </div>
+        <div class="form-group age">
+          <label>Ville <span class="text-danger" *ngIf="RegisterFormGroup.controls['ville'].errors
+            && (RegisterFormGroup.controls['ville'].touched || RegisterFormGroup.controls['ville'].dirty  )">
+            {{getErrorMessage('ville',RegisterFormGroup.controls['ville'].errors)}}</span></label>
+          <input class="form-control" type="text" formControlName="ville">
+        </div>
+        <div class="form-group phone-no">
+          <label>Numéro telephone <span class="text-danger" *ngIf="RegisterFormGroup.controls['tel'].errors
+            && (RegisterFormGroup.controls['tel'].touched || RegisterFormGroup.controls['tel'].dirty  )">
+            {{getErrorMessage('Numéro telephone',RegisterFormGroup.controls['tel'].errors)}}</span></label>
+          <input class="form-control" type="number" formControlName="tel">
+        </div>
+
+        <button class="btn signin" [disabled]="RegisterFormGroup.invalid">Créer mon compte</button>
+        <span class="user-login">avez-vous déja un compte? Cliquer ici <a routerLink="/v1/LoginCandidat">Se connecter</a></span>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+

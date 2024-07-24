@@ -1,0 +1,31 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table me-1"></i>
+    Traited File
+  </div>
+  <div class="card-body">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="datatables"  class="display" class="table mx-auto">
+
+      <thead>
+      <tr>
+        <th>Job</th>
+        <th>Date</th>
+        <th>Directory</th>
+        <th>File</th>
+        <th>Error Cause</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of apiData">
+        <td>{{ item.job }}</td>
+        <td>{{item.dateTraited | dateFormatter}}</td>
+        <td>{{ item.directory.substring(37) }}</td>
+        <td>{{ item.file.substring(2) }}</td>
+        <td>{{ item.errorCause }}</td>
+      </tr>
+      <!-- DataTable will populate rows here -->
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<body class="sb-nav-fixed">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+  <!-- Navbar Brand-->
+
+  <a class="navbar-brand ps-3" routerLink="/v2/Dashboard">
+    <img class="img-fluid" width="190px" src="https://i.ibb.co/CsVdbH2/Picture1.png">
+  </a>
+  <!-- Sidebar Toggle-->
+  <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+  <!-- Navbar Search-->
+  <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+    <div class="input-group">
+
+    </div>
+  </form>
+  <!-- Navbar-->
+  <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+    <li class="nav-item dropdown" >
+      <a class="nav-link" (click)="auth.logout()" role="button" data-toggle="dropdown" aria-haspopup="true"
+         aria-expanded="false">
+        Deconnexion <i class="ti-angle-down ml-1"></i>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/v1/AnnonceEtat">Secteur Etatique</a>
+
+        <a class="dropdown-item" routerLink="/v1/AnnoncePublic">Secteur Public </a>
+
+        <a class="dropdown-item" routerLink="/v1/AnnonceTerritoriale">Secteur Territoriale</a>
+
+
+      </div>
+    </li>
+  </ul>
+</nav>
+<div id="layoutSidenav">
+  <div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+      <div class="sb-sidenav-menu">
+        <div class="nav">
+          <div class="sb-sidenav-menu-heading">Core</div>
+          <a class="nav-link"  routerLink="/v2/Dashboard">
+            <div class="sb-nav-link-icon"><i class="bi bi-house"></i></div>
+            Dashboard
+          </a>
+          <div class="sb-sidenav-menu-heading">File</div>
+          <a class="nav-link collapsed" routerLink="/v2/Traited" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon"><i class="bi bi-alexa"></i></div>
+            Traited File
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+          <a class="nav-link collapsed" routerLink="/v2/NoTraited" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+            <div class="sb-nav-link-icon"><i class="bi bi-person-badge"></i></div>
+            Pending File
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+          </a>
+<!--          <div class="sb-sidenav-menu-heading">Concours</div>-->
+<!--          <a class="nav-link collapsed" routerLink="/v2/AnnoncePrive" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">-->
+<!--            <div class="sb-nav-link-icon"><i class="bi bi-file-earmark-text"></i></div>-->
+<!--            Secteur Privée-->
+<!--            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>-->
+<!--          </a>-->
+
+
+<!--          <div class="sb-sidenav-menu-heading">Stage</div>-->
+<!--          <a class="nav-link collapsed" routerLink="/v2/OffreStage" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">-->
+<!--            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>-->
+<!--            Offre de Stage-->
+<!--            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>-->
+<!--          </a>-->
+<!--          <a class="nav-link" routerLink="/v2/DemandeStage">-->
+<!--            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>-->
+<!--            Demande de Stages-->
+<!--          </a>-->
+        </div>
+      </div>
+      <div class="sb-sidenav-footer">
+        <div class="small">Logged in as:</div>
+        ADMIN
+      </div>
+    </nav>
+  </div>
+  <div id="layoutSidenav_content">
+    <main>
+  <router-outlet>
+
+  </router-outlet>
+    </main>
+  </div>
+</div>
+
+</body>
+

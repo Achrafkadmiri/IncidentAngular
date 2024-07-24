@@ -1,0 +1,75 @@
+<div class="container">
+
+  <div class=" col-md-12 ">
+    <div class="form-container">
+      <h3 class="title">Espace Recruteur <br><br> <h4>Créer Votre Compte</h4></h3>
+
+      <form class="form-horizontal" [formGroup]="RegisterFormGroup" (ngSubmit)="saveRecruteur()">
+        <div class="form-group">
+          <label>Username * <span class="text-danger" *ngIf="RegisterFormGroup.controls['username'].errors
+            && (RegisterFormGroup.controls['username'].touched || RegisterFormGroup.controls['username'].dirty  )">
+            {{getErrorMessage('username',RegisterFormGroup.controls['username'].errors)}}</span></label>
+          <input class="form-control" type="text" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label>Email * <span class="text-danger" *ngIf="RegisterFormGroup.controls['email'].errors
+            && (RegisterFormGroup.controls['email'].touched || RegisterFormGroup.controls['email'].dirty  )">
+            {{getErrorMessage('Email',RegisterFormGroup.controls['email'].errors)}}</span></label>
+          <input class="form-control" type="email" formControlName="email">
+          <span class="text-danger">
+            ddd</span>
+
+        </div>
+
+        <div class="form-group">
+          <label>Mot de passe * <span class="text-danger" *ngIf="RegisterFormGroup.controls['password'].errors
+            && (RegisterFormGroup.controls['password'].touched || RegisterFormGroup.controls['password'].dirty  )">
+            {{getErrorMessage('Mot de passe',RegisterFormGroup.controls['password'].errors)}}</span></label>
+          <input class="form-control" type="password" formControlName="password">
+        </div>
+        <div class="form-group">
+          <label>Confirmer Mot de passe * <span class="text-danger" *ngIf="RegisterFormGroup.controls['Cpassword'].errors
+            && (RegisterFormGroup.controls['Cpassword'].touched || RegisterFormGroup.controls['Cpassword'].dirty  )">
+            {{getErrorMessage('Mot de passe',RegisterFormGroup.controls['Cpassword'].errors)}}</span></label>
+          <input class="form-control" type="password" formControlName="Cpassword">
+        </div>
+        <h4 class="sub-title">Informations Personnel</h4>
+        <div class="form-group phone-no">
+          <label>Nom Entreprise <span class="text-danger" *ngIf="RegisterFormGroup.controls['nomEntreprise'].errors
+            && (RegisterFormGroup.controls['nomEntreprise'].touched || RegisterFormGroup.controls['nomEntreprise'].dirty  )">
+            {{getErrorMessage('Nom Entreprise',RegisterFormGroup.controls['nomEntreprise'].errors)}}</span></label>
+          <input class="form-control" type="text" formControlName="nomEntreprise">
+        </div>
+        <div class="form-group age">
+          <label>Ville <span class="text-danger" *ngIf="RegisterFormGroup.controls['ville'].errors
+            && (RegisterFormGroup.controls['ville'].touched || RegisterFormGroup.controls['ville'].dirty  )">
+            {{getErrorMessage('ville',RegisterFormGroup.controls['ville'].errors)}}</span></label>
+          <input class="form-control" type="text" formControlName="ville">
+        </div>
+        <div class="form-group phone-no">
+          <label>Numéro telephone <span class="text-danger" *ngIf="RegisterFormGroup.controls['telephone'].errors
+            && (RegisterFormGroup.controls['telephone'].touched || RegisterFormGroup.controls['telephone'].dirty  )">
+            {{getErrorMessage('telephone',RegisterFormGroup.controls['telephone'].errors)}}</span></label>
+          <input class="form-control" type="number" formControlName="telephone">
+        </div>
+        <div class="form-group age">
+
+        </div>
+          <div class="form-group phone-no">
+            <label class="form-label" for="form6Example7">À PROPOS DE L'ORGANISME <span class="text-danger" *ngIf="RegisterFormGroup.controls['description'].errors
+            && (RegisterFormGroup.controls['description'].touched || RegisterFormGroup.controls['description'].dirty  )">
+            {{getErrorMessage('À PROPOS DE L\'ORGANISME',RegisterFormGroup.controls['description'].errors)}}</span></label>
+            <textarea class="form-control" id="form6Example7" rows="9" formControlName="description"></textarea>
+
+          </div>
+        <button class="btn signin" [disabled]="RegisterFormGroup.invalid">Créer mon compte</button>
+        <span class="user-login">avez-vous déja un compte? Cliquer ici <a
+          routerLink="/v1/LoginRecruteur">Se connecter</a></span>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+

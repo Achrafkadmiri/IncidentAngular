@@ -1,0 +1,30 @@
+
+
+<div class="container">
+
+  <div class=" col-md-12 ">
+
+    <div class="form-container">
+
+      <h3 class="title"><img class="img-fluid" width="190px" src="https://1000logos.net/wp-content/uploads/2024/04/Stellantis-Logo.png" alt="logo"/> <br><br> <h4 >LOGIN</h4></h3>
+
+      <form class="form-horizontal" [formGroup]="LoginFormGroup" (ngSubmit)="loginAdmin()">
+        <div class="form-group">
+          <label>Username *</label>
+          <input class="form-control" type="text" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label>Password *</label>
+          <input class="form-control" type="password" formControlName="password">
+        </div>
+
+        <button class="btn signin" >Log in</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+
